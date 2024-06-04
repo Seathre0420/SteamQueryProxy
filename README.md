@@ -186,6 +186,18 @@ As can be seen here, of the millions of spoofed packets sent, it was still
 possible for a legitmate client to query the server information unobstructed and
 zero traffic was passed to the backend game server.
 
+# Specific to CS:GO and CS2
+
+As of CS:GO 1.32.3.0 (Including CS2) the game server no longer responds to the
+`A2S_RULES` request, as such you will see the following periodic error:
+
+```
+recvfrom: Resource temporarily unavailable
+```
+
+This is benign and can be ignored, it will not affect the proper operation of
+this tool.
+
 # Donations
 
 If you like this project and find it useful and would like to help out you can
