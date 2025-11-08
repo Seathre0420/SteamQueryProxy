@@ -263,7 +263,7 @@ static void * clientThread(void * opaque)
       }
 
       case STAGE_SLEEP:
-        msleep(1000 * 10);
+        msleep(1000 * 5);
         stage = STAGE_INFO;
         continue;
     }
