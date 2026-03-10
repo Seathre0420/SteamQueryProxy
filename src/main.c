@@ -252,7 +252,7 @@ static bool parse_payload(int sock, void * payload, uint16_t len)
   {
     if (g_stats.enabled)
       atomic_fetch_add(&g_stats.pass, 1);
-    return true;
+    return false;
   }
 
   uint32_t challenge;
