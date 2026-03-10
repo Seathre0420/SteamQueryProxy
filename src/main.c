@@ -343,7 +343,7 @@ static bool parse_payload(int sock, void * payload, uint16_t len)
       {
         .header = HEADER_SINGLE,
         .query  = A2A_PING_REPLY,
-        .data   = "00000000000000\0"
+        .data   = "00000000000000"
       };
 
       sendPacket(sock, h->ip.saddr, h->ip.daddr, h->udp.source, h->udp.dest,
