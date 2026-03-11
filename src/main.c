@@ -21,7 +21,7 @@
 #include <libnetfilter_queue/libnetfilter_queue.h>
 
 // the maximum size of packets we are interested in
-#define MAX_RECV_SIZE 57
+#define MAX_RECV_SIZE 72
 
 static bool g_goldSource  = false;
 static bool g_dropPrivate = false;
@@ -252,7 +252,7 @@ static bool parse_payload(int sock, void * payload, uint16_t len)
   {
     if (g_stats.enabled)
       atomic_fetch_add(&g_stats.pass, 1);
-    return false;
+    return true;
   }
 
   uint32_t challenge;
@@ -343,7 +343,7 @@ static bool parse_payload(int sock, void * payload, uint16_t len)
       {
         .header = HEADER_SINGLE,
         .query  = A2A_PING_REPLY,
-        .data   = "00000000000000"
+        .data   = "00000000000000\0"
       };
 
       sendPacket(sock, h->ip.saddr, h->ip.daddr, h->udp.source, h->udp.dest,
